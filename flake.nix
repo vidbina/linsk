@@ -10,13 +10,13 @@
     in
     {
       # Build through: nix build .
-      packages.x86_64-darwin.default = pkgs.buildGoModule rec {
+      packages.x86_64-darwin.default = pkgs.buildGo121Module rec {
         name = "linsk";
         src = builtins.path {
           path = ./.;
           name = "${name}-src";
         };
-        vendorSha256 = pkgs.lib.fakeSha256;
+        vendorSha256 = "sha256-bZb7ejGxsaQTsW7pF6sPAPrcqqhYntSuyNBXJwOLdzo=";
 
         nativeBuildInputs = [ ];
       };
