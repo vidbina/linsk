@@ -8,7 +8,8 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      # Build through: nix build .
+      # Build Linsk through: nix build .
+      # Build Linsk VM through: ./result/bin/linsk build
       packages.default = pkgs.buildGo121Module rec {
         name = "linsk";
         src = builtins.path {
