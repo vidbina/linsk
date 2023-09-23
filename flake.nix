@@ -17,7 +17,10 @@
         };
         vendorSha256 = "sha256-bZb7ejGxsaQTsW7pF6sPAPrcqqhYntSuyNBXJwOLdzo=";
 
-        nativeBuildInputs = [ ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postInstall = ''
+          wrapProgram $out/bin/linsk --prefix PATH : "${nixpkgs.lib.makeBinPath [ pkgs.qemu ]}"
+        '';
       };
 
       # Enter through: nix develop
